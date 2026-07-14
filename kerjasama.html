@@ -10,40 +10,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700&display=swap" rel="stylesheet">
     
     <style>
-        /* Nama: Ezra Bagus Wibowo Samson
-        NIM: 25.12.3678
-        Kelas: SI01
-        Tanggal Pengerjaan: 24 Mei 2026
-     */
-
-        /* Mengganti font dan background menyamakan index.html */
-        body { 
-            background-color: #f4f7f6; 
-            font-family: 'Poppins', sans-serif;
-            color: #333;
-        }
-        
-        /* Kartu Kustom dengan sudut melengkung dan bayangan halus (dari index.html) */
-        .card-custom {
-            border: none;
-            border-radius: 1.25rem;
-            background-color: #ffffff;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        
-        
-        /* Mengatur Navigasi (dari index.html) */
-        .navbar-custom {
-            background-color: #1a1e21;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        }
-
-        /* Styling Form Input agar lebih estetik */
-        .form-control:focus, .form-select:focus {
-            border-color: #0d6efd;
-            box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.15);
-        }
+        body { background-color: #f4f7f6; font-family: 'Poppins', sans-serif; color: #333; }
+        .card-custom { border: none; border-radius: 1.25rem; background-color: #ffffff; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04); }
+        .navbar-custom { background-color: #1a1e21; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+        .form-control:focus, .form-select:focus { border-color: #0d6efd; box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.15); }
     </style>
 </head>
 <body>
@@ -56,19 +26,14 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link fw-semibold" href="index.html">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active fw-semibold" href="kerjasama.html">Kerjasama</a>
-                    </li>
+                    <li class="nav-item"><a class="nav-link fw-semibold" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link active fw-semibold" href="kerjasama.html">Kerjasama</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
     <div class="container mt-5">
-        
         <div class="row mb-4 text-center">
             <div class="col-12">
                 <h2 class="fw-bold mb-3">Formulir <span class="text-primary">Kerjasama</span></h2>
@@ -82,6 +47,16 @@
                     
                    <form action="#" method="POST" onsubmit="tampilkanNotif(event)">
                         
+                        <!-- Instruksi WhatsApp Baru -->
+                        <div class="row mb-4 align-items-center">
+                            <div class="col-sm-12">
+                                <div class="alert alert-light border-0 shadow-sm" style="background-color: #f8fafc; border-left: 4px solid #0d6efd; color: #4a5568;">
+                                    <i class="bi bi-whatsapp me-2 text-success"></i> 
+                                    Terima kasih atas minat Anda. Setelah mengirimkan formulir ini, mohon untuk melanjutkan konfirmasi dokumen atau proposal penawaran Anda melalui WhatsApp di <strong>08xxxxxxxxx</strong> (Ganti nomor ini) agar dapat segera saya tinjau lebih lanjut.
+                                </div>
+                            </div>
+                        </div>
+
                         <div class="row mb-4 align-items-center">
                             <label class="col-sm-3 col-form-label fw-medium text-secondary">Nama Lengkap</label>
                             <div class="col-sm-9">
@@ -89,7 +64,7 @@
                             </div>
                         </div>
 
-                      <div class="row mb-4 align-items-center">
+                        <div class="row mb-4 align-items-center">
                             <label class="col-sm-3 col-form-label fw-medium text-secondary">Alamat Lengkap</label>
                             <div class="col-sm-9">
                                 <textarea class="form-control bg-light" name="alamat" rows="3" placeholder="Tuliskan alamat lengkap Anda" required></textarea>
@@ -143,83 +118,20 @@
                         </div>
 
                         <div class="row mb-4 align-items-center">
-                            <label class="col-sm-3 col-form-label fw-medium text-secondary">File Penawaran</label>
-                            <div class="col-sm-9">
-                                <input type="file" class="form-control bg-light" name="file_penawaran" accept=".pdf,.doc,.docx">
-                                <small class="text-muted">Format yang diizinkan: PDF, DOC, DOCX</small>
-                            </div>
-                        </div>
-
-                        <div class="row mb-4 align-items-center">
                             <label class="col-sm-3 col-form-label fw-medium text-secondary">Tgl. Pelaksanaan</label>
                             <div class="col-sm-9">
                                 <input type="datetime-local" class="form-control bg-light" name="tanggal" required>
                             </div>
                         </div>
 
-                       <div class="row mb-4 align-items-center">
+                        <div class="row mb-4 align-items-center">
                             <label class="col-sm-3 col-form-label fw-medium text-secondary">Domisili (Provinsi)</label>
                             <div class="col-sm-9">
                                 <select class="form-select bg-light" name="domisili" required>
                                     <option value="" disabled selected>-- Pilih Provinsi Domisili Anda --</option>
-                                    
-                                    <optgroup label="Sumatra">
-                                        <option value="Aceh">Aceh</option>
-                                        <option value="Sumatera Utara">Sumatera Utara</option>
-                                        <option value="Sumatera Barat">Sumatera Barat</option>
-                                        <option value="Riau">Riau</option>
-                                        <option value="Kepulauan Riau">Kepulauan Riau</option>
-                                        <option value="Jambi">Jambi</option>
-                                        <option value="Sumatera Selatan">Sumatera Selatan</option>
-                                        <option value="Kepulauan Bangka Belitung">Kepulauan Bangka Belitung</option>
-                                        <option value="Bengkulu">Bengkulu</option>
-                                        <option value="Lampung">Lampung</option>
-                                    </optgroup>
-                                    
-                                    <optgroup label="Jawa">
-                                        <option value="Banten">Banten</option>
-                                        <option value="DKI Jakarta">DKI Jakarta</option>
-                                        <option value="Jawa Barat">Jawa Barat</option>
-                                        <option value="Jawa Tengah">Jawa Tengah</option>
-                                        <option value="DI Yogyakarta">DI Yogyakarta</option>
-                                        <option value="Jawa Timur">Jawa Timur</option>
-                                    </optgroup>
-                                    
-                                    <optgroup label="Bali & Nusa Tenggara">
-                                        <option value="Bali">Bali</option>
-                                        <option value="Nusa Tenggara Barat">Nusa Tenggara Barat</option>
-                                        <option value="Nusa Tenggara Timur">Nusa Tenggara Timur</option>
-                                    </optgroup>
-                                    
-                                    <optgroup label="Kalimantan">
-                                        <option value="Kalimantan Barat">Kalimantan Barat</option>
-                                        <option value="Kalimantan Tengah">Kalimantan Tengah</option>
-                                        <option value="Kalimantan Selatan">Kalimantan Selatan</option>
-                                        <option value="Kalimantan Timur">Kalimantan Timur</option>
-                                        <option value="Kalimantan Utara">Kalimantan Utara</option>
-                                    </optgroup>
-                                    
-                                    <optgroup label="Sulawesi">
-                                        <option value="Sulawesi Utara">Sulawesi Utara</option>
-                                        <option value="Gorontalo">Gorontalo</option>
-                                        <option value="Sulawesi Tengah">Sulawesi Tengah</option>
-                                        <option value="Sulawesi Barat">Sulawesi Barat</option>
-                                        <option value="Sulawesi Selatan">Sulawesi Selatan</option>
-                                        <option value="Sulawesi Tenggara">Sulawesi Tenggara</option>
-                                    </optgroup>
-                                    
-                                    <optgroup label="Maluku & Papua">
-                                        <option value="Maluku Utara">Maluku Utara</option>
-                                        <option value="Maluku">Maluku</option>
-                                        <option value="Papua Barat">Papua Barat</option>
-                                        <option value="Papua Barat Daya">Papua Barat Daya</option>
-                                        <option value="Papua">Papua</option>
-                                        <option value="Papua Tengah">Papua Tengah</option>
-                                        <option value="Papua Pegunungan">Papua Pegunungan</option>
-                                        <option value="Papua Selatan">Papua Selatan</option>
-                                    </optgroup>
-                                    
-                                    <option value="Luar Negeri">Luar Negeri</option>
+                                    <option value="DI Yogyakarta">DI Yogyakarta</option>
+                                    <option value="Jawa Tengah">Jawa Tengah</option>
+                                    <option value="Jawa Barat">Jawa Barat</option>
                                 </select>
                             </div>
                         </div>
@@ -231,64 +143,42 @@
                             </div>
                         </div>
                     </form>
-
                 </div>
             </div>
         </div>
-
-        <div class="row mb-5">
-            <div class="col-12 text-center">
-                <div class="card-custom py-3">
-                     <p class="mb-0 text-muted small fw-medium">Built with <i class="bi bi-heart-fill text-danger"></i> by Ezra Bagus Wibowo Samson.</p>
-                </div>
-            </div>
-        </div>
-        
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    
-<script>
-    function tampilkanNotif(event) {
-        // Mencegah halaman refresh
-        event.preventDefault(); 
-        
-        const form = event.target;
-        const data = new FormData(form);
-        const buttonSubmit = form.querySelector('button[type="submit"]');
+    <script>
+        function tampilkanNotif(event) {
+            event.preventDefault(); 
+            const form = event.target;
+            const data = new FormData(form);
+            const buttonSubmit = form.querySelector('button[type="submit"]');
 
-        // Ubah teks tombol saat loading agar klien tahu data sedang diproses
-        buttonSubmit.innerHTML = '<i class="bi bi-hourglass-split me-2"></i>Mengirim...';
-        buttonSubmit.disabled = true;
+            buttonSubmit.innerHTML = '<i class="bi bi-hourglass-split me-2"></i>Mengirim...';
+            buttonSubmit.disabled = true;
 
-        // GANTI LINK DI BAWAH INI DENGAN LINK FORMSPREE MILIKMU
-        const formspreeLink = 'https://formspree.io/f/mpqvzvkz';
+            const formspreeLink = 'https://formspree.io/f/mpqvzvkz';
 
-        fetch(formspreeLink, {
-            method: 'POST',
-            body: data,
-            headers: {
-                'Accept': 'application/json'
-            }
-        }).then(response => {
-            if (response.ok) {
-                // Jika berhasil terkirim
-                alert("Halo, Terima kasih!\n\nPenawaran kerjasama Anda sudah berhasil dikirim. Ezra akan segera meninjau proposal tersebut dan menghubungi Anda kembali secepatnya. Have a great day!");
-                form.reset();
-            } else {
-                // Jika error dari server
-                alert("Oops! Terjadi kesalahan saat mengirim form. Silakan coba lagi.");
-            }
-        }).catch(error => {
-            // Jika internet klien terputus
-            alert("Oops! Terjadi masalah koneksi. Pastikan internet Anda stabil dan coba lagi.");
-        }).finally(() => {
-            // Kembalikan tombol seperti semula
-            buttonSubmit.innerHTML = '<i class="bi bi-send-fill me-2"></i>Kirim Penawaran';
-            buttonSubmit.disabled = false;
-        });
-    }
-</script>
+            fetch(formspreeLink, {
+                method: 'POST',
+                body: data,
+                headers: { 'Accept': 'application/json' }
+            }).then(response => {
+                if (response.ok) {
+                    alert("Terima kasih! Data berhasil dikirim. Silakan lanjut ke WhatsApp untuk mengirim dokumen.");
+                    form.reset();
+                    // Opsional: Langsung buka WA
+                    // window.location.href = "https://wa.me/628xxxxxxxxx"; 
+                } else {
+                    alert("Oops! Terjadi kesalahan saat mengirim form.");
+                }
+            }).finally(() => {
+                buttonSubmit.innerHTML = '<i class="bi bi-send-fill me-2"></i>Kirim Penawaran';
+                buttonSubmit.disabled = false;
+            });
+        }
+    </script>
 </body>
 </html>
