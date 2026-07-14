@@ -249,17 +249,46 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     
- <script>
-        function tampilkanNotif(event) {
-            // Mencegah halaman refresh secara otomatis
-            event.preventDefault(); 
-            
-            // Menampilkan notifikasi pop-up dengan baris baru (\n)
-            alert("Halo, Terima kasih!\n\nPenawaran kerjasama Anda sudah berhasil dikirim. Ezra akan segera meninjau proposal tersebut dan menghubungi Anda kembali secepatnya. Have a great day!");
-            
-            // Mengosongkan isian form kembali
-            event.target.reset(); 
-        }
-    </script>
+<script>
+    function tampilkanNotif(event) {
+        // Mencegah halaman refresh
+        event.preventDefault(); 
+        
+        const form = event.target;
+        const data = new FormData(form);
+        const buttonSubmit = form.querySelector('button[type="submit"]');
+
+        // Ubah teks tombol saat loading agar klien tahu data sedang diproses
+        buttonSubmit.innerHTML = '<i class="bi bi-hourglass-split me-2"></i>Mengirim...';
+        buttonSubmit.disabled = true;
+
+        // GANTI LINK DI BAWAH INI DENGAN LINK FORMSPREE MILIKMU
+        const formspreeLink = 'https://formspree.io/f/mpqvzvkz';
+
+        fetch(formspreeLink, {
+            method: 'POST',
+            body: data,
+            headers: {
+                'Accept': 'application/json'
+            }
+        }).then(response => {
+            if (response.ok) {
+                // Jika berhasil terkirim
+                alert("Halo, Terima kasih!\n\nPenawaran kerjasama Anda sudah berhasil dikirim. Ezra akan segera meninjau proposal tersebut dan menghubungi Anda kembali secepatnya. Have a great day!");
+                form.reset();
+            } else {
+                // Jika error dari server
+                alert("Oops! Terjadi kesalahan saat mengirim form. Silakan coba lagi.");
+            }
+        }).catch(error => {
+            // Jika internet klien terputus
+            alert("Oops! Terjadi masalah koneksi. Pastikan internet Anda stabil dan coba lagi.");
+        }).finally(() => {
+            // Kembalikan tombol seperti semula
+            buttonSubmit.innerHTML = '<i class="bi bi-send-fill me-2"></i>Kirim Penawaran';
+            buttonSubmit.disabled = false;
+        });
+    }
+</script>
 </body>
 </html>
